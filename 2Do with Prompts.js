@@ -1,5 +1,27 @@
-// See online documentation for examples
-// http://getdrafts.com/scripting
+// Prompt example
+// Using Select
+
+var p = Prompt.create();
+p.title = "Select Prompt Example";
+p.message = "Demonstrates options for single and multi-option select in prompts.";
+
+var options = ["First", "Second", "Third", "Fourth"];
+var selectedOptions = ["Second"];
+
+// single selection
+p.addSelect("s1", "Select one...", options, selectedOptions, false);
+
+// multiple selections
+p.addSelect("s2", "Select multiple...", options, selectedOptions, true);
+
+p.addButton("OK");
+
+if (p.show()) {
+	var s = "Selected: " + p.fieldValues["s1"] + "\n\n";
+	s += "Multi-Select: " + p.fieldValues["s2"] + "\n";
+	alert(s);
+}
+//2do
 const baseURL = "twodo://x-callback-url/add";
 var tags = "Added via Drafts App";
 
@@ -24,4 +46,4 @@ for (var task of tasks) {
 			context.fail();
 		}
 	}
-}
+};
