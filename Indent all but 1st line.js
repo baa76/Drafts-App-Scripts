@@ -1,3 +1,6 @@
+// Action: Change this script to indent all but the first line; this will then be used as a first step in a drafts action paste dump to a new 2do project or checklist
+
+
 // character string used for indent
 let indent = "    ";
 if (draft.languageGrammar == "Taskpaper") {
