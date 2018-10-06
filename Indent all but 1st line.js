@@ -5,26 +5,17 @@ let [selStart, selLen] = editor.getSelectedRange();
 let [lnStart, lnLen] = editor.getSelectedLineRange();
 let lnText = editor.getTextInRange(lnStart, lnLen); */
 
-
-draft.content = draft.processTemplate("[[line|2..]]");
-let lnText = draft.content;
-console.log(lnText);
-
-
+// Select line 2 onwards
+let titleText = draft.processTemplate("[[title]]");
+let subtaskText = draft.processTemplate("[[line|2..]]");
 // character string used for indent
 let indent = "    ";
-
-// grab ranges and text
 
 // loop over lines and add indents skipping blank lines
 let indentedLines = [];
 let indentCt = 0;
-// let fl = false;
-/* if (lnText.endsWith("\n")) {
-	lnText = lnText.slice(0, -1);
-	fl = true;
-}*/
-let lines = lnText.split("\n");
+let lines = subtaskText.split("\n");
+
 for(let line of lines) {
 	if (line.length > 0) {
 		indentedLines.push(indent + line);
@@ -36,12 +27,12 @@ for(let line of lines) {
 }
 
 // set text
-/* let resultText = indentedLines.join("\n");
-if (fl) { resultText = resultText + "\n"; }
-editor.setTextInRange(lnStart, lnLen, resultText);
+let resultSubtaskText = indentedLines.join("\n");
+let resultText = (titleText + "\n" + resultSubtaskText);
+editor.setText(resultText);
+// editor.setTextInRange(lnStart, lnLen, resultText);
 
 // update selection
-let newStart = selStart + indent.length;
+/* let newStart = selStart + indent.length;
 let newLen = selLen + (indent.length * (indentCt - 1))
-editor.setSelectedRange(newStart, newLen);
-*/
+editor.setSelectedRange(newStart, newLen); */
