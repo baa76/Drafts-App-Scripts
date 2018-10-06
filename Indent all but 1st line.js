@@ -1,14 +1,14 @@
 // Action: Change this script to indent all but the first line; this will then be used as a first step in a drafts action paste dump to a new 2do project or checklist
-/* const allText = draft.content();
 
+/* const allText
 let [selStart, selLen] = editor.getSelectedRange();
 let [lnStart, lnLen] = editor.getSelectedLineRange();
-let lnText = editor.getTextInRange(lnStart, lnLen);
+let lnText = editor.getTextInRange(lnStart, lnLen); */
 
-console.log(lnText); */
 
 draft.content = draft.processTemplate("[[line|2..]]");
 let lnText = draft.content;
+console.log(lnText);
 
 
 // character string used for indent
@@ -19,11 +19,11 @@ let indent = "    ";
 // loop over lines and add indents skipping blank lines
 let indentedLines = [];
 let indentCt = 0;
-let fl = false;
-if (lnText.endsWith("\n")) {
+// let fl = false;
+/* if (lnText.endsWith("\n")) {
 	lnText = lnText.slice(0, -1);
 	fl = true;
-}
+}*/
 let lines = lnText.split("\n");
 for(let line of lines) {
 	if (line.length > 0) {
@@ -36,7 +36,7 @@ for(let line of lines) {
 }
 
 // set text
-let resultText = indentedLines.join("\n");
+/* let resultText = indentedLines.join("\n");
 if (fl) { resultText = resultText + "\n"; }
 editor.setTextInRange(lnStart, lnLen, resultText);
 
