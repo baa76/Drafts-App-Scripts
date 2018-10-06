@@ -44,3 +44,4 @@ editor.setTextInRange(lnStart, lnLen, resultText);
 let newStart = selStart + indent.length;
 let newLen = selLen + (indent.length * (indentCt - 1))
 editor.setSelectedRange(newStart, newLen);
+*/
