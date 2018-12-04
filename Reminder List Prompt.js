@@ -1,10 +1,20 @@
 // Prompt
 /* --------------------- */
-var lists = ["", "", "",…];
+var lists = [
+    "Shopping",
+    "Other Shopping",
+    "Maintenance",
+    "Errands",
+    "Family",
+    "Holiday Activies",
+    "Gift Ideas for Kids",
+    "Camping Pack List",
+    "Christmas Pack List",
+    "Short Trip Pack List"];
 
 var p = Prompt.create();
-p.title = "";
-p.message = "";
+p.title = "Lists";
+p.message = "Choose a List";
 for (i = 0; i < lists.length; i++) {
   p.addButton(lists[i]);
   p.addTextField("fieldName", "Label", "");
