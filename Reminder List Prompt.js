@@ -6,7 +6,7 @@ var lists = [
     "Maintenance",
     "Errands",
     "Family",
-    "Holiday Activies",
+    "Holiday Activities",
     "Gift Ideas for Kids",
     "Camping Pack List",
     "Christmas Pack List",
