@@ -17,7 +17,7 @@ p.title = "Lists";
 p.message = "Choose a List";
 for (i = 0; i < lists.length; i++) {
   p.addButton(lists[i]);
-  p.addTextField("fieldName", "Label", "");
+  //p.addTextField("fieldName", "Label", "");
 }
 var con = p.show();
 
