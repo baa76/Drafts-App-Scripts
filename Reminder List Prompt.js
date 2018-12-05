@@ -22,7 +22,22 @@ for (i = 0; i < lists.length; i++) {
 var con = p.show();
 
 if (con) {
-  // action goes here
+  var textToInsert = "insert this at the start: ";
+
+var sel = editor.getSelectedText();
+var selRange = editor.getSelectedRange();
+
+draft.content = textToInsert + draft.content;
+draft.update();
+
+editor.activate();
+
+if (!sel || sel.length == 0) {
+  editor.setSelectedRange(selRange[0]+textToInsert.length,0);
+}
+else {
+  editor.setSelectedRange(selRange[0]+textToInsert.length, selRange[1],0);
+}
 }
 else {
   context.cancel();
