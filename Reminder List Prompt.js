@@ -16,12 +16,12 @@ var p = Prompt.create();
 p.title = "Lists";
 p.message = "Choose a List";
 for (i = 0; i < lists.length; i++) {
-  p.addButton(lists[i], '#'+ lists[i]);
+  p.addButton(lists[i], '#'+ lists[i] + '\n');
 }
 var con = p.show();
 
 if (con) {
-  var textToInsert = prompt.buttonPressed;
+  var textToInsert = p.buttonPressed;
   var sel = editor.getSelectedText();
   var selRange = editor.getSelectedRange();
 
