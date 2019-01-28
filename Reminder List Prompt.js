@@ -2,7 +2,7 @@
 /* --------------------- */
 var lists = [
     "Shopping",
-    "Other Shopping",
+    "Non Grocery Purchases",
     "Maintenance",
     "Errands",
     "Family",
