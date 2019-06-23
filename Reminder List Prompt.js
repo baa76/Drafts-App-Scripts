@@ -2,9 +2,10 @@
 /* --------------------- */
 var lists = [
     "Shopping",
+    "Finance",
+    "Todo",
     "Non Grocery Purchases",
     "Maintenance",
-    "Errands",
     "Family",
     "Holiday Activities",
     "Gift Ideas for Kids",
