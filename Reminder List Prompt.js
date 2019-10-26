@@ -4,14 +4,16 @@ var lists = [
     "Shopping",
     "Finance",
     "To Do",
-    "Non Grocery Purchases",
-    "Maintenance",
+    "Errands",
     "Family",
-    "Holiday Activities",
-    "Gift Ideas for Kids",
-    "Camping Pack List",
-    "Christmas Pack List",
-    "Short Trip Pack List"];
+    "Roy",
+    "Mack",
+    "Car",
+    "Maintenance",
+    "Health",
+    "Study",
+    "Shortcut Ideas",
+    "Camping Trip Food"];
 
 var p = Prompt.create();
 p.title = "Lists";
