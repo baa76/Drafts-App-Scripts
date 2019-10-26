@@ -3,7 +3,7 @@
 var lists = [
     "Shopping",
     "Finance",
-    "Todo",
+    "To Do",
     "Non Grocery Purchases",
     "Maintenance",
     "Family",
