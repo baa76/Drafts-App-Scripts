@@ -4,7 +4,7 @@ var lists = [
     "Shopping",
     "Finance",
     "To Do",
-    "Errands",
+    "Tasks",
     "Family",
     "Roy",
     "Mack",
