@@ -1,6 +1,6 @@
 // Prompt
 /* --------------------- */
-var lists = [
+let lists = [
     "Any Supermarket",
     "Aldi",
     "Coles",
@@ -15,25 +15,22 @@ var lists = [
     "Amazon"
     ];
 
+//Build Prompt
+let options = ["Batch", "Single"];
+let selectedOptions = ["Batch"];
 let p = Prompt.create();
 p.title = "Stores";
 p.message = "Choose a Store";
-for (i = 0; i < lists.length; i++) {
-  p.addButton(lists[i], '#'+ lists[i] + '\n');
-}
-
-let options = ["Batch", "Single"];
-let selectedOptions = ["Batch"];
-
-// task type selection
 p.addSelect("s1", "Process single line or all lines?", options, selectedOptions, false);
+for (i = 0; i < lists.length; i++) {
+  p.addButton(lists[i], '| ' + lists[i]);
 
-var con = p.show();
+let con = p.show();
 
-if (con) {
-  var textToInsert = `| {p.buttonPressed}`;
-  var sel = editor.getSelectedText();
-  var selRange = editor.getSelectedRange();
+/* if (con) {
+  let textToInsert = p.buttonPressed;
+  let sel = editor.getSelectedText();
+  let selRange = editor.getSelectedRange();
 
   draft.content = textToInsert + draft.content;
   draft.update();
@@ -49,4 +46,14 @@ if (con) {
 }
 else {
   context.cancel();
+}
+ */
+if(con){
+  var textToAdd = null;
+  var addSpace = true;
+  const lines = editor.getText().split('\n');
+  const appendToStrings = function(line) {
+    line = line.concat(b.buttonPressed);
+    return line;
+}
 }
