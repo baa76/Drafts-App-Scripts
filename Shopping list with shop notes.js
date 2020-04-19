@@ -24,7 +24,7 @@ p.message = "Choose a Store";
 p.addSelect("s1", "Process single line or all lines?", options, selectedOptions, false);
 for (i = 0; i < lists.length; i++) {
   p.addButton(lists[i], '| ' + lists[i]);
-
+}
 let con = p.show();
 
 /* if (con) {
@@ -55,5 +55,5 @@ if(con){
   const appendToStrings = function(line) {
     line = line.concat(b.buttonPressed);
     return line;
-}
+};
 }

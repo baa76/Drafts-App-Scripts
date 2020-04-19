@@ -11,7 +11,7 @@ const appendToStrings = function(line) {
   line = line.concat(textToAdd);
 
   return line;
-}
+};
 
 var p = Prompt.create();
 p.title = "Append Text";
