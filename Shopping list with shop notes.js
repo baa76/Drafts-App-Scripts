@@ -16,17 +16,45 @@ let lists = [
     ];
 
 //Build Prompt
-let options = ["Batch", "Single"];
-let selectedOptions = ["Batch"];
 let p = Prompt.create();
 p.title = "Stores";
 p.message = "Choose a Store";
-p.addSelect("s1", "Process single line or all lines?", options, selectedOptions, false);
 for (i = 0; i < lists.length; i++) {
   p.addButton(lists[i], '| ' + lists[i]);
 }
-let con = p.show();
+let pmpt = p.show();
+const lines = editor.getText().split('\n');
 
+const appendToStrings = function(line) {
+  // if (addSpace) {
+  //   line = line.concat(" ");
+  // }
+  line = line.concat(p.buttonPressed);
+  return line;
+};
+
+// if (pmpt) {
+//   textToAdd = p.fieldValues["tv1"];
+// // addSpace = p.fieldValues["sw1"];
+// }
+// if (textToAdd !== null) {
+  const newLines = lines.map(appendToStrings);
+  const afterText = newLines.join("\n");
+  editor.setText(afterText);
+// }
+
+// let options = ["Batch", "Single"];
+// let selectedOptions = ["Batch"];
+// p.addSelect("s1", "Process single line or all lines?", options, selectedOptions, false);
+// let textToAdd = null;
+// let addSpace = true;
+// let p = Prompt.create();
+// p.title = "Append Text";
+// p.addTextView("tv1", "Type the text you want to append.", "", {
+//   "height": 30
+// });
+// p.addSwitch("sw1", "Add Space", addSpace);
+// p.addButton("OK");
 /* if (con) {
   let textToInsert = p.buttonPressed;
   let sel = editor.getSelectedText();
@@ -48,12 +76,11 @@ else {
   context.cancel();
 }
  */
-if(con){
-  var textToAdd = null;
-  var addSpace = true;
+/* if(con){
+  let textToAdd = null;
+  let addSpace = true;
   const lines = editor.getText().split('\n');
   const appendToStrings = function(line) {
     line = line.concat(b.buttonPressed);
     return line;
-};
-}
+}; */
