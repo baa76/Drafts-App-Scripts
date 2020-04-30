@@ -7,6 +7,7 @@ let lists = [
     "Woolworths",
     "Tip Top Butcher",
     "Farmer Joe's",
+    "Kmart",
     "Preston Market",
     "Officeworks",
     "Bunnings",
