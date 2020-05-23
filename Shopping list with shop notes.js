@@ -22,7 +22,7 @@ let p1 = Prompt.create();
 p1.title = "Stores";
 p1.message = "Choose a Store";
 for (i = 0; i < shops.length; i++) {
-  p.addButton(shops[i], '| ' + shops[i]);
+  p1.addButton(shops[i], '| ' + shops[i]);
 }
 let p1s = p.show();
 //Process Prompt
@@ -48,7 +48,7 @@ var p2 = Prompt.create();
 p2.title = "Lists";
 p2.message = "Choose a List";
 for (i = 0; i < lists.length; i++) {
-p.addButton(lists[i], '#'+ lists[i] + '\n');
+p2.addButton(lists[i], '#'+ lists[i] + '\n');
 }
 var con = p.show();
 
