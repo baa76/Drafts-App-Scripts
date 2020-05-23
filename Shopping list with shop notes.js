@@ -29,7 +29,7 @@ let p1s = p1.show();
 if(p1s) {
   const lines = editor.getText().split('\n');
   const appendToStrings = function(line) {
-    line = line.concat(p.buttonPressed);
+    line = line.concat(p1.buttonPressed);
     return line;
   };
   const newLines = lines.map(appendToStrings);
@@ -53,7 +53,7 @@ p2.addButton(lists[i], '#'+ lists[i] + '\n');
 var con = p2.show();
 
 if (con) {
-var textToInsert = p.buttonPressed;
+var textToInsert = p2.buttonPressed;
 var sel = editor.getSelectedText();
 var selRange = editor.getSelectedRange();
 
