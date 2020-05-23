@@ -24,7 +24,7 @@ p1.message = "Choose a Store";
 for (i = 0; i < shops.length; i++) {
   p1.addButton(shops[i], '| ' + shops[i]);
 }
-let p1s = p.show();
+let p1s = p1.show();
 //Process Prompt
 if(p1s) {
   const lines = editor.getText().split('\n');
@@ -50,7 +50,7 @@ p2.message = "Choose a List";
 for (i = 0; i < lists.length; i++) {
 p2.addButton(lists[i], '#'+ lists[i] + '\n');
 }
-var con = p.show();
+var con = p2.show();
 
 if (con) {
 var textToInsert = p.buttonPressed;
