@@ -1,37 +1,115 @@
-const authKey = "pk_2719152_WYIHLOGKZFS608YDKSZ53Z7189V8R320"; //Herrods IML Auth key for user bryn.roberts
-const contentType = "application/json"; //content-type
-const baseURL = "https://api.clickup.com/api/v2/"; //base URL
-const teamID = "6904442";
-const http = HTTP.create(); // create HTTP object
-// Get getSpaces
-const getSpaces = http.request({
-  "url": baseURL,
+var http = HTTP.create(); // create HTTP object
+var authKey = "pk_2719152_WYIHLOGKZFS608YDKSZ53Z7189V8R320"; //Herrods IML Auth key for user bryn.roberts
+var contentType = "application/json"; //content-type
+var baseURL = "https://api.clickup.com/api/v2/"; //base URL
+var teamID = "6904442";
+var url = baseURL + "team/" + teamID + "/space" + "?archived=false";
+
+var response = http.request({
+  "url": url,
   "method": "GET",
   "headers": {
-            "Authorization": authKey + "team/" + teamID + "/space",
-            "Content-Type": contentType
+    "Authorization": authKey
   }
 });
 
 if (response.success) {
-  let text = response.responseText;
+  var text = response.responseText;
+  var data = response.responseData;
 }
 else {
   console.log(response.statusCode);
   console.log(response.error);
 }
+var data = JSON.parse(text);
+var text = JSON.stringify(data);
 
-let obj = JSON.parse(text);
-
-let p1 = Prompt.create();
-p1.title = "Spaces";
-p1.message = "Choose a Space";
-for (i = 0; i <obj.length; i++) {
-  p1.addButton(whatWeWant[i].name,whatWeWant[i].id);
+//Build Prompt
+var p = Prompt.create();
+p.title = "Spaces";
+p.message = "Choose a Space";
+for (i = 0; i < data.spaces.length; i++) {
+  p.addButton(data.spaces[i].name, data.spaces[i].id);
 }
-let p1s = p1.show();
+var ps = p.show();
 
-it = p1.buttonPressed;
+var selSpace = p.buttonPressed;
+alert(selSpace);
+
+var url = baseURL + "space/" + selSpace + "/folder?archived=false";
+
+var response = http.request({
+  "url": url,
+  "method": "GET",
+  "headers": {
+    "Authorization": authKey
+  }
+});
+
+if (response.success) {
+  var text = response.responseText;
+  var data = response.responseData;
+}
+else {
+  console.log(response.statusCode);
+  console.log(response.error);
+}
+var data = JSON.parse(text);
+var text = JSON.stringify(data);
+
+//Build Prompt
+var p = Prompt.create();
+p.title = "Folders";
+p.message = "Choose a Folder";
+for (i = 0; i < data.folders.length; i++) {
+  p.addButton(data.folders[i].name, data.folders[i].id);
+}
+var ps = p.show();
+
+var selFolder = p.buttonPressed;
+alert(selFolder);
+
+
+// draft.content = textToInsert + draft.content;
+// draft.update();
+
+
+
+
+
+
+/* var getSpaces = http.request({
+  "url": baseURL + "team/" + teamID + "/space",
+  "method": "GET",
+  "headers": {
+            "Authorization": authKey,
+            "Content-Type": "application/json"
+  }
+});
+
+let response = HTTPResponse;
+
+if (response.success) {
+  var text = response.responseText;
+}
+else {
+  console.log(response.statusCode);
+  console.log(response.error);
+}
+ */
+// let obj = JSON.parse(text);
+
+// let p1 = Prompt.create();
+// p1.title = "Spaces";
+// p1.message = "Choose a Space";
+// for (i = 0; i <obj.length; i++) {
+//   p1.addButton(obj[i].name,obj[i].id);
+// }
+// let p1s = p1.show();
+
+// it = p1.buttonPressed;
+
+// alert(it);
 
 
 
@@ -48,15 +126,14 @@ it = p1.buttonPressed;
 
 
 
-
-if(p1s) {
-    const lines = editor.getText().split('\n');
-    const appendToStrings = function(line) {
+/* if(p1s) {
+    var lines = editor.getText().split('\n');
+    var appendToStrings = function(line) {
       line = line.concat(p1.buttonPressed);
       return line;
     };
-    const newLines = lines.map(appendToStrings);
-    const afterText = newLines.join("\n");
+    var newLines = lines.map(appendToStrings);
+    var afterText = newLines.join("\n");
     editor.setText(afterText);
   }
   else {
@@ -70,7 +147,6 @@ d.update();
 
 
 // Prompt
-/* --------------------- */
 let shops = [
     "Any Supermarket",
     "Aldi",
@@ -142,4 +218,4 @@ else {
 }
 else {
 context.cancel();
-}
+} */
