@@ -19,6 +19,7 @@ function getData() {
     } else {
         console.log(response.statusCode);
         console.log(response.error);
+        alert(response.error);
     }
 }
 
@@ -38,13 +39,17 @@ function buildPrompt(title, message, array) {
 //Get Spaces
 var url = baseURL + "team/" + teamID + "/space?archived=false";
 var data = getData();
-//Build Prompt
-var spacesPrompt = buildPrompt("Spaces","Select a Space","spaces");
-alert(spacesPrompt);
+//Build Prompt and Get ID
+var spaceID = buildPrompt("Spaces","Select a Space","spaces");
 
 //Get Folders
-var url = baseURL + "team/" + teamID + "/space?archived=false";
+var url = baseURL + "space/" + spaceID + "/folder?archived=false";
 var data = getData();
-//Build Prompt
-var spacesPrompt = buildPrompt("Spaces","Select a Space","spaces");
-alert(spacesPrompt);
+//Build Prompt and Get ID
+var folderID = buildPrompt("Folders","Select a Folder","folders");
+
+// Get Lists
+var url = baseURL + "folder/" + folderID + "/list?archived=false";
+var data = getData();
+//Build Prompt and Get ID
+var ListID = buildPrompt("Lists","Select a List","lists");
