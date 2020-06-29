@@ -3,6 +3,9 @@ var baseURL = "https://api.clickup.com/api/v2/"; //base URL
 var contentType = "application/json"; //content-type
 var authKey = "pk_2719152_WYIHLOGKZFS608YDKSZ53Z7189V8R320"; //Herrods IML Auth key for user bryn.roberts
 var teamID = "6904442";
+var taskTitle = draft.title;
+var taskDescription = draft.lines.splice(1).join('\n');
+alert(taskDescription);
 
 function getData() {
     var response = http.request({
@@ -22,7 +25,7 @@ function getData() {
         alert(response.error);
     }
 }
-
+// add cancel
 function buildPrompt(title, message, array) {
     var p = Prompt.create();
     p.title = title;
